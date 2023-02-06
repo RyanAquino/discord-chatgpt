@@ -9,7 +9,7 @@ def get_response(message: str) -> str:
         model=model_engine,
         prompt=message,
         temperature=0.6,
-        max_tokens=1024
+        max_tokens=512
     )
     logger.debug(f"ChatGPT Response: {response}")
 

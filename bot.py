@@ -9,7 +9,9 @@ from loguru import logger
 
 
 def run_discord_bot():
-    bot = commands.Bot(command_prefix="!", intents=discord.Intents.default())
+    intents = discord.Intents.default()
+    intents.message_content = True
+    bot = commands.Bot(command_prefix="!", intents=intents)
 
     @bot.event
     async def on_ready():
@@ -22,9 +24,9 @@ def run_discord_bot():
     @bot.tree.command(name="ask")
     @app_commands.describe(message="Ask me anything Dota related!")
     async def ask(interaction: discord.Interaction, message: str):
+        await interaction.response.defer()
+        await asyncio.sleep(5)
         response = get_response(message)
-        await interaction.response.defer(thinking=True)
-        await asyncio.sleep(30)
         await interaction.followup.send(response)
         logger.success(f"Successfully sent message: {response}")
 
