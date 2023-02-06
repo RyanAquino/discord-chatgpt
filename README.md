@@ -1,12 +1,16 @@
-# Title
-Description
+# Discord ChatGPT bot
+Discord bot integrated with ChatGPT
 
 ### Requirements
 * Python 3
+* OpenAI API key
+* Discord API key
 
 
 ## Technology
 * Python 3
+* Discord
+* OpenAI ChatGPT
 
 
 ## Setup
